@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="https://ssyoutube.com/img/logo.svg">
+
+   <style>
+       body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar
+                {
+                    background-color: #08003A;
+                    color: white;
+                }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height:400px;
+             background-color: #08003A;
+
+        }
+        .logo {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            padding-top: 20px;
+        }
+        .logo img {
+            width: 24px;
+            margin-right: 5px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 400;
+            color: white;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        input {
+            width: 350px;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            height: 35px;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            background-color: #dc3545;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #d81f32;
+        }
+            footer {
+      width: 100%;
+      background-color: #000; 
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px; 
+      margin-bottom: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #20C997; 
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #20C997;
+    }
+
+    .footer-bottom {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .footer-bottom span {
+      color: #ff3300; 
+    }
+    .mainimgs > img
+                { 
+                    height: 142px;
+                    width: 142px;
+                    padding: 16px;
+                }
+        .maindata > p
+                { 
+                        color: #6c757d;
+                        text-align: left;
+                        padding-left: 220px;
+                        margin-top: 20px;
+                }
+                .maindata > h4
+                { 
+                        color: #6c757d;
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 20px;
+                        font-weight: 400;
+                }
+                .maindata > ul
+                { 
+                        color: #6c757d;
+                        text-align: left;
+                        margin-top: 20px;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-left: 220px;
+
+                }
+                .maindata > ul > li
+                { 
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        
+                }
+                .maindata > h3
+                { 
+                       font-size: 30px;
+                       color: #000;
+                       font-weight: 400;
+                       padding: 5px;
+                        
+                }
+                .easilydownload
+                    {
+                        display: flex;
+                            justify-content:center;
+                            align-items: center;
+                    }
+             .easilydownload1 > p , .easilydownload2 > p , .easilydownload3 > p
+                    {
+                        max-width: 350px;
+                        margin-left: 10px;
+                        margin-right: 10px;
+
+                    }
+         .easilydownload1 , .easilydownload2 , .easilydownload3
+                    {
+                        color: #6c757d;
+                    }
+                    .other-websites-section {
+      background-color: #08003A; 
+      padding: 40px 20px;      
+      text-align: center;      
+      font-family: Arial, sans-serif;
+      color: #fff; 
+    }
+
+    .other-websites-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .other-websites-section p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      margin-right: 200px;
+      margin-left: 200px;
+      text-align: left;
+    }
+    .videodata
+    {
+        color: #8f8f8f;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    }
+     h4
+        {
+            font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    margin: 0;
+    color: #08003a;
+    padding-bottom: 20px;
+        }
+        .faqs {
+      max-width: 85%;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .faqs h2 {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      background-color: #08003A;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: left;
+      border-radius: 8px;
+      border: 2px solid #1600A9;
+
+    }
+
+    .faq-question {
+      position: relative;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 22px;
+      color: #fff;
+      height: 40px;
+      padding-top: 40px;
+    }
+
+  
+    .faq-question::after {
+      content: '▼';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      background-color: #fff;
+      color: #333;
+      padding: 15px 20px;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faqs > h2 
+        {
+            color: black;
+            text-align: center;
+        }
+        .footer-column > strong 
+        {
+            color: white;
+            font-weight: 400;
+        }
+        .footer-bottom
+                {
+                    padding: 10px;
+                    margin-bottom: 20px;
+                }
+    </style>
+</head>
+<body>
+   <div class="navbar">
+    <div class="logo">
+        <img src="https://ssyoutube.com/img/logo.svg" alt="Logo">youtube
+    </div>
+   </div>
+    <div class="container">
+     
+        <h2>YouTube Video Downloader</h2>
+        <form action="/download" method="post">
+            <input type="text" name="url" placeholder="Paste your video link here" required>
+            <button type="submit">Download <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+    </div>
+    <div class="maindata">
+        <p>YouTube Video Downloader is a simple and fast online tool for downloading YouTube videos. It helps you save videos easily, even when <br> YouTube doesn’t allow downloads. With our easy-to-use interface, you can quickly access your favorite content.</p>
+        <h4>Supported Platforms: </h4>
+        <div class="mainimgs">
+            <img src="https://ssyoutube.com/img/platforms/windows.svg" alt="Logo">
+            <img src="https://ssyoutube.com/img/platforms/apple.svg" alt="Logo">
+            <img src="https://ssyoutube.com/img/platforms/android.svg" alt="Logo">
+            <img src="https://ssyoutube.com/img/platforms/linux.svg" alt="Logo">
+        </div>
+        <ul>
+            <li>Download YouTube videos free with our leading YouTube downloader.</li>
+            <li>Choose from multiple formats: MP4, MP3, SQ, HD, and Full HD.</li>
+            <li>Download on any device: Works seamlessly on desktop and mobile.</li>
+            <li>Our online platform makes downloading YouTube videos easy.</li>
+            <li>Enjoy fast downloads and unlimited access to YouTube videos, all for free.</li>
+            <li>Stay informed: Learn advanced video downloading tips in our detailed guide.</li>
+          </ul>
+          <h3>Easily Download YouTube Videos: A Step-by-Step Guide</h3>
+          <div class="easilydownload">
+            <div class="easilydownload1">
+                  <img src="https://ssyoutube.com/img/steps/howto2.png" alt="Logo"> 
+                 <p>Follow these simple steps to download YouTube videos for offline viewing:</p>
+            </div>
+            <div class="easilydownload2">
+                <img src="https://ssyoutube.com/img/steps/howto3.png" alt="Logo"> 
+               <p>Locate your video on YouTube and copy the link from your browser's address bar.</p>
+          </div>
+          <div class="easilydownload3">
+            <img src="https://ssyoutube.com/img/steps/howto4.png" alt="Logo"> 
+           <p>Paste the YouTube link into the provided box on our website.</p>
+      </div>
+          </div>
+  <div class="other-websites-section">
+    <h2>Download Videos From Other Websites</h2>
+    <p>
+      Want to download YouTube shorts from sites other than YouTube? The YouTube downloader supports video downloads from 99% of websites!
+      Just add <strong>"from.net"</strong> or <strong>"savefromnet"</strong> before the website URL and press Enter.
+    </p>
+    <p>
+      You'll get a list of direct links to download all available videos from that website.
+    </p>
+    <p>
+      For example: <strong>ssfrom.net</strong> 
+      <a href="#" target="_blank" style="color: #ff9900; text-decoration: none;">http://www.thedesiredlink.com</a>
+    </p>
+  </div>
+  <h3>YouTube Video Downloader Short Domain to Download Videos</h3>
+  <div class="easilydownload">
+    <div class="easilydownload1">
+        <h4>Find Your Video</h4>
+          <img src="https://ssyoutube.com/img/steps/howto2.png" alt="Logo"> 
+         <p class="videodata">First, find the YouTube video you want to download and copy its URL from the address bar.</p>
+    </div>
+    <div class="easilydownload2">
+        <h4>Find Your Video</h4>
+        <img src="https://ssyoutube.com/img/steps/howto3.png" alt="Logo"> 
+       <p class="videodata">Add "ss" before the video URL. This prefix is how you initiate the youtube download process.</p>
+  </div>
+  <div class="easilydownload3">
+    <h4>Find Your Video</h4>
+    <img src="https://ssyoutube.com/img/steps/howto4.png" alt="Logo"> 
+   <p class="videodata">Hit Enter. You'll be taken to a new page where your youtube video download will start automatically.</p>
+</div>
+  </div>
+  <div class="faqs">
+    <h2>FAQ</h2>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        What is YouTube Video Downloader and what does it do?
+      </div>
+      <div class="faq-answer">
+        YouTube Video Downloader is an online tool that allows users to download videos from YouTube quickly and easily.
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        How do I download YouTube videos with YouTube Video Downloader?
+      </div>
+      <div class="faq-answer">
+        Simply paste the video link into the downloader, select your preferred format, and click the download button.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        Which video formats does YouTube Video Downloader support?
+      </div>
+      <div class="faq-answer">
+        It supports multiple formats, including MP4, WEBM, and audio formats like MP3.
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        Can I download YouTube playlists or channels using YouTube Video Downloader?
+      </div>
+      <div class="faq-answer">
+        Yes, you can download entire playlists by entering the playlist link in the downloader.
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        Is YouTube Video Downloader safe to use?
+      </div>
+      <div class="faq-answer">
+        Yes, it is safe to use as long as you download videos for personal use and follow YouTube’s terms of service.
+      </div>
+    </div>
+  
+  </div>
+          
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            © 2025 YouTube Downloader, made with <span>❤️</span> by YouTube Video Downloader
+        <!-- Footer Top -->
+        <div class="footer-top">
+          <!-- Column 1 -->
+          <div class="footer-column">
+            <strong>Download Youtube to mp4</strong>
+            <a href="#">Youtube Shorts</a>
+            <a href="#">Twitter Video Downloader</a>
+          </div>
+          <div class="footer-column">
+            <a href="#">Facebook Video Downloader</a>
+          </div>
+    
+    
+          <!-- Column 2 -->
+          <div class="footer-column">
+            <strong>Facebook Video Downloader</strong>
+            <a href="#">About us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+            <a href="#">API</a>
+          </div>
+      
+          <!-- Column 3 -->
+          <div class="footer-column">
+            <strong>Partners</strong>
+            <a href="#">SSSTIK</a>
+          </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+      
+      </footer>
+      <script>
+        // Select all FAQ items
+        const faqItems = document.querySelectorAll('.faq-item');
+      
+        faqItems.forEach((item) => {
+          const question = item.querySelector('.faq-question');
+          question.addEventListener('click', () => {
+            // Toggle active class
+            item.classList.toggle('active');
+          });
+        });
+      </script>
+</body>
+</html>
